@@ -1,0 +1,24 @@
+package trigmaa;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class trigmaaa {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C://Users//abc//Downloads//chromedriver_win32//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		String baseurl= "https://trigma.com/";
+		driver.get(baseurl);
+		Thread.sleep(3000);
+
+	    driver.manage().window().maximize();
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	    ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+	   // js.executeScript("window.scrollBy(0,100000)");
+	  
+	}
+
+}

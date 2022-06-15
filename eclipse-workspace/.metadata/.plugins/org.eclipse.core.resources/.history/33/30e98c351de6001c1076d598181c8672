@@ -1,0 +1,53 @@
+package dome;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class domes {
+	  WebDriver driver = new ChromeDriver();
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C://Users//abc//Downloads//chromedriver_win32//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		driver.get("https://www.edureka.co/community");
+		String mainweb = driver.getWindowHandle();
+		driver.findElement(By.xpath("//a[@class='qa-logo-link edureka']")).sendKeys(Keys.SHIFT,Keys.ENTER);
+		Thread.sleep(100);
+		js.executeScript("window.scrollBy(0,400)");
+		Set <String> set = driver.getWindowHandles();
+		System.out.println(set);
+		Iterator <String> itr = set.iterator();
+		while(itr.hasNext())
+		{
+		js.executeScript("window.scrollBy(0,400)");
+		String child = itr.next();
+		if(!mainweb.equals(child))
+		{
+		driver.switchTo().window(child);
+		System.out.println(driver.switchTo().window(child).getTitle());
+		// driver.close();
+		}
+		}
+		driver.switchTo().window(mainweb);
+		 
+		}
+		 
+		}

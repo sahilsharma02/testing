@@ -1,0 +1,64 @@
+package fileupload;
+
+import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class csvfile {
+	 WebDriver driver;
+	 static String baseurl= "https://devorder.crowndigital.io/login";
+	 String CSV_file = "C://Users//abc//Downloads//captcha_score.xlsx";
+	 
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "C://Users//abc//Downloads//chromedriver_win32//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(baseurl);
+		driver.findElement(By.className("native-input")).sendKeys("number");
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector("button[type='submit']")).click();
+
+
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+	}
+	public void verify_search() throws IOException, InterruptedException { 
+		//driver.get(baseurl);
+		
+		BufferedReader input = new BufferedReader(new FileReader("tech.csv"));
+		String line = "";
+		while ((line = input.readLine()) != null) {
+
+			
+			for(int i=0;i<1;i++) {
+				int number = i;
+			
+				
+				
+				//driver.findElement(By.className("native-input")).sendKeys("number");
+				Thread.sleep(3000);
+				//driver.findElement(By.cssSelector("button[type='submit']")).click();
+
+
+			}
+		}
+		
+		
+		 
+	    
+
+	
+		   }
+			}
+
+

@@ -1,0 +1,48 @@
+package dome;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class domes {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"C://Users//abc//Downloads//chromedriver_win32//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		String baseurl = "https://devsapkiosk.crowndigital.io/kioskautologin/50af53b1204c9fcccca2fb30418ec62b/82d5984c2a2ad4c62caf1dd073b1c91c/1";
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.get(baseurl);
+		Thread.sleep(3000);
+		 WebElement root1 = driver.findElement(By.tagName("ion-router-outlet"));
+	        WebElement shadow_root1 = expand_shadow_element(root1);
+	        
+	        WebElement root2 = driver.findElement(By.tagName("ion-button"));
+	        WebElement shadow_root2 = expand_shadow_element(root2);
+	      
+	        WebElement root3 = driver.findElement(By.tagName("ion-content"));
+	        WebElement shadow_root3 = expand_shadow_element(root3);
+	        
+	        WebElement root4 = driver.findElement(By.cssSelector("ion-app.md.ion-page.hydrated ion-router-outlet.hydrated app-scan.ion-page.can-go-back:nth-child(2) ion-content.text-center.md.content-ltr.hydrated > div:nth-child(1)"));
+	        WebElement shadow_root4 = expand_shadow_element(root4);
+	        
+	       
+
+	        WebElement search_button = shadow_root4.findElement(By.cssSelector("ion-app.md.ion-page.hydrated ion-router-outlet.hydrated app-scan.ion-page.can-go-back:nth-child(2) ion-content.text-center.md.content-ltr.hydrated div:nth-child(1) > img:nth-child(1)"));
+	        ((JavascriptExecutor)driver).executeScript("arguments[0].click();" , search_button);
+	       
+
+		
+	}
+
+	private static WebElement expand_shadow_element(WebElement root1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

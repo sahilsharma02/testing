@@ -1,0 +1,65 @@
+package dome;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
+
+import junit.framework.Test;
+
+public class domes {
+	 WebDriver driver = new ChromeDriver();
+	 public static void main(String[] args) {
+		 
+	 }
+
+	// @Test(1)
+	 public void testOnChromeWithBrowserStackUrl()
+	 {
+		 System.setProperty("webdriver.chrome.driver",
+					"C://Users//abc//Downloads//chromedriver_win32//chromedriver.exe");	 driver=new ChromeDriver();
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	 driver.get("https://www.browserstack.com/");
+	 driver.manage().window().maximize();
+	 System.out.println("this is the test related to chrome browserstack homepage"+ " " +Thread.currentThread().getId());
+
+	 }
+	// @Test(2)
+	 public void testOnChromeWithBrowserStackSignUp()
+	 {
+	 System.setProperty("webdriver.gecko.driver", ".\\Driver\\geckodriver.exe");
+	 driver=new ChromeDriver();
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	 driver.get("https://www.browserstack.com/users/sign_up");
+	 driver.manage().window().maximize();
+	 driver.findElement(By.id("user_full_name")).sendKeys("<name>");
+	 driver.findElement(By.id("user_email_login")).sendKeys("<login email id>");
+	 driver.findElement(By.id("user_password")).sendKeys("<password>");
+	 System.out.println("this is the test related to chrome browserstack login"+ " " +Thread.currentThread().getId());
+
+	 }
+
+	 @AfterClass
+	 public void close()
+	 {
+	 driver.quit();
+	 }
+		
+	
+		 
+		
+	
+	}	 		
+	
